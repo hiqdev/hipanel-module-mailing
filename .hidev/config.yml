@@ -1,0 +1,15 @@
+package:
+    type:           yii2-extension
+    name:           hipanel-module-mailing
+    title:          Mailing module for HiPanel
+    headline:       HiPanel Mailing Module
+    keywords:       hipanel, module, mailing
+    namespace:      hipanel\modules\mailing
+    description:    |
+        [![Logo](https://raw.githubusercontent.com/hiqdev/hipanel-core/master/docs/logo.png)](https://hipanel.com/)
+
+        [HiPanel](http://hipanel.com) is the next generation control panel for hosting, domains and more.
+
+        This package provides mailing functions for HiPanel.
+
+
