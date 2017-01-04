@@ -42,6 +42,9 @@
             "homepage": "http://hiqdev.com/"
         }
     ],
+    "require": {
+        "hiqdev/hipanel-core": "<2.0 || dev-master"
+    },
     "require-dev": {
         "hiqdev/hidev-php": "<2.0 || dev-master",
         "hiqdev/hidev-hiqdev": "<2.0 || dev-master"
@@ -50,5 +53,16 @@
         "psr-4": {
             "hipanel\\modules\\mailing\\": "src"
         }
-    }
+    },
+    "extra": {
+        "config-plugin": {
+            "hisite": "src/config/hisite.php"
+        }
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://asset-packagist.org"
+        }
+    ]
 }
