@@ -8,6 +8,7 @@ HiPanel Mailing Module
 [![Build Status](https://img.shields.io/travis/hiqdev/hipanel-module-mailing.svg)](https://travis-ci.org/hiqdev/hipanel-module-mailing)
 [![Scrutinizer Code Coverage](https://img.shields.io/scrutinizer/coverage/g/hiqdev/hipanel-module-mailing.svg)](https://scrutinizer-ci.com/g/hiqdev/hipanel-module-mailing/)
 [![Scrutinizer Code Quality](https://img.shields.io/scrutinizer/g/hiqdev/hipanel-module-mailing.svg)](https://scrutinizer-ci.com/g/hiqdev/hipanel-module-mailing/)
+[![Dependency Status](https://www.versioneye.com/php/hiqdev:hipanel-module-mailing/dev-master/badge.svg)](https://www.versioneye.com/php/hiqdev:hipanel-module-mailing/dev-master)
 
 [![Logo](https://raw.githubusercontent.com/hiqdev/hipanel-core/master/docs/logo.png)](https://hipanel.com/)
 

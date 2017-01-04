@@ -1,12 +1,11 @@
 <?php
-
-/*
- * Finance module for HiPanel
+/**
+ * Mailing module for HiPanel
  *
- * @link      https://github.com/hiqdev/hipanel-module-finance
- * @package   hipanel-module-finance
+ * @link      https://github.com/hiqdev/hipanel-module-mailing
+ * @package   hipanel-module-mailing
  * @license   BSD-3-Clause
- * @copyright Copyright (c) 2015-2016, HiQDev (http://hiqdev.com/)
+ * @copyright Copyright (c) 2017, HiQDev (http://hiqdev.com/)
  */
 
 return [
@@ -29,5 +28,23 @@ return [
         ],
     ],
     'container' => [
+        'definitions' => [
+            \hiqdev\thememanager\menus\AbstractSidebarMenu::class => [
+                'add' => [
+                    'client' => [
+                        'menu' => [
+                            'merge' => [
+                                'mailing' => [
+                                    'menu' => \hipanel\modules\mailing\menus\SidebarSubMenu::class,
+                                    'where' => [
+                                        'after' => ['documents'],
+                                    ],
+                                ],
+                            ],
+                        ],
+                    ],
+                ],
+            ],
+        ],
     ],
 ];
