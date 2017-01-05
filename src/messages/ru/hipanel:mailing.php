@@ -31,4 +31,6 @@ return [
     'Switch' => 'Свитч',
     'Type' => 'Тип',
     'Set filters to start the mailing preparation' => 'Установить фильтры для начала подготовки рассылки',
+    'Not set' => 'Не выбран',
+    'Languages' => 'Языки',
 ];

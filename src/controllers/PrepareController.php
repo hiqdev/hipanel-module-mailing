@@ -58,6 +58,8 @@ class PrepareController extends CrudController
             'clientTypes' => $this->getClientTypes(),
             'serverTypes' => $this->getServerTypes(),
             'serverStates' => $this->getServerStates(),
+            'domainStates' => $this->getDomainStates(),
+            'languages' => $this->getLanguages(),
         ];
 
         if ($model->load(Yii::$app->request->get()) && $model->validate()) {
@@ -89,16 +91,26 @@ class PrepareController extends CrudController
 
     private function getClientTypes()
     {
-        return $this->getRefs('type,client');
+        return $this->getRefs('type,client', 'hipanel:client');
     }
 
     private function getServerTypes()
     {
-        return $this->getRefs('type,server');
+        return $this->getRefs('type,device', 'hipanel:server');
     }
 
     private function getServerStates()
     {
-        return $this->getRefs('state,server');
+        return $this->getRefs('state,device', 'hipanel:server');
+    }
+
+    private function getDomainStates()
+    {
+        return $this->getRefs('state,domain', 'hipanel:domain');
+    }
+
+    private function getLanguages()
+    {
+        return $this->getRefs('type,lang', 'hipanel');
     }
 }

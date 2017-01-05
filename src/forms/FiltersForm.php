@@ -39,7 +39,11 @@ class FiltersForm extends Model
 
     public $has_domain;
 
+    public $domain_state_in;
+
     public $exclude_unsubscribed;
+
+    public $language_in;
 
     public function attributes()
     {
@@ -48,7 +52,8 @@ class FiltersForm extends Model
             'seller_in',
             'server_in', 'has_server', 'server_state_in', 'server_type_in',
             'server_switch_like', 'server_rack_like', 'server_pdu_like',
-            'domain_like', 'has_domain',
+            'domain_like', 'has_domain', 'domain_state_in',
+            'language_in',
             'exclude_unsubscribed',
         ];
     }
@@ -75,7 +80,10 @@ class FiltersForm extends Model
             'server_pdu_like' => Yii::t('hipanel:mailing', 'PDU'),
             'has_domain' => Yii::t('hipanel:mailing', 'Has domain'),
             'domain_like' => Yii::t('hipanel:mailing', 'Domain'),
+            'domain_state_in' => Yii::t('hipanel:mailing', 'State'),
             'exclude_unsubscribed' => Yii::t('hipanel:mailing', 'Exclude unsubscribed'),
+            'language_in' => Yii::t('hipanel:mailing', 'Languages'),
+            'language_unknown' => Yii::t('hipanel:mailing', 'Language is unknown'),
         ];
     }
 }

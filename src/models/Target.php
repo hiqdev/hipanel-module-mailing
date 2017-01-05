@@ -29,6 +29,8 @@ class Target extends Model
 
     public $servers;
 
+    public $server_states;
+
     public $domains;
 
     public function attributes()
@@ -39,6 +41,7 @@ class Target extends Model
             'to',
             'language',
             'servers',
+            'server_states',
             'domains',
         ];
     }
@@ -51,6 +54,7 @@ class Target extends Model
             'to' => Yii::t('hipanel:mailing', 'Email'),
             'language' => Yii::t('hipanel:mailing', 'Language'),
             'servers' => Yii::t('hipanel:mailing', 'Servers'),
+            'server_states' => Yii::t('hipanel:mailing', 'Server states'),
             'domains' => Yii::t('hipanel:mailing', 'Domains'),
         ];
     }

@@ -6,9 +6,12 @@ use hipanel\modules\server\widgets\combo\ServerCombo;
 use hiqdev\combo\StaticCombo;
 
 /**
- * @var \hipanel\widgets\AdvancedSearch
+ * @var \yii\web\View
+ * @var \hipanel\widgets\AdvancedSearch $search
  * @var array $serverStates
  * @var array $serverTypes
+ * @var array $domainStates
+ * @var array $languages
  */
 ?>
 
@@ -22,6 +25,20 @@ use hiqdev\combo\StaticCombo;
     <?= $search->field('client_in')->widget(ClientCombo::class, [
         'multiple' => true,
     ]) ?>
+</div>
+
+<div class="col-md-4 col-sm-6 col-xs-12">
+    <?= $search->field('language_in')->widget(\hiqdev\combo\MultipleStaticCombo::class, [
+        'hasId' => true,
+        'data' => ['' => Yii::t('hipanel:mailing', 'Not set')] + $languages,
+        'inputOptions' => [
+            'multiple' => true,
+        ],
+    ]) ?>
+</div>
+
+<div class="col-md-4 col-sm-6 col-xs-12">
+    <?= $search->field('exclude_unsubscribed')->checkbox() ?>
 </div>
 
 <?php if (Yii::getAlias('@server', false) !== false) : ?>
@@ -39,24 +56,39 @@ use hiqdev\combo\StaticCombo;
             'multiple' => true,
         ]) ?>
     </div>
+
     <div class="col-md-4 col-sm-6 col-xs-12">
         <?= $search->field('server_state_in')->widget(StaticCombo::class, [
             'multiple' => true,
+            'hasId' => true,
             'data' => $serverStates,
         ]) ?>
     </div>
+
+    <div class="col-md-4 col-sm-6 col-xs-12">
+        <?= $search->field('server_state_in')->widget(StaticCombo::class, [
+            'multiple' => true,
+            'hasId' => true,
+            'data' => $serverStates,
+        ]) ?>
+    </div>
+
     <div class="col-md-4 col-sm-6 col-xs-12">
         <?= $search->field('server_type_in')->widget(StaticCombo::class, [
             'multiple' => true,
+            'hasId' => true,
             'data' => $serverTypes,
         ]) ?>
     </div>
+
     <div class="col-md-4 col-sm-6 col-xs-12">
         <?= $search->field('server_switch_like') ?>
     </div>
+
     <div class="col-md-4 col-sm-6 col-xs-12">
         <?= $search->field('server_rack_like') ?>
     </div>
+
     <div class="col-md-4 col-sm-6 col-xs-12">
         <?= $search->field('server_pdu_like') ?>
     </div>
@@ -70,6 +102,14 @@ use hiqdev\combo\StaticCombo;
 
     <div class="col-md-4 col-sm-6 col-xs-12">
         <?= $search->field('has_domain')->checkbox() ?>
+    </div>
+
+    <div class="col-md-4 col-sm-6 col-xs-12">
+        <?= $search->field('domain_state_in')->widget(StaticCombo::class, [
+            'multiple' => true,
+            'hasId' => true,
+            'data' => $domainStates,
+        ]) ?>
     </div>
 
     <div class="col-md-4 col-sm-6 col-xs-12">

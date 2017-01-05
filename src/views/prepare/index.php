@@ -4,11 +4,13 @@ use hipanel\widgets\IndexPage;
 use yii\helpers\Html;
 
 /**
- * @var \yii\data\ArrayDataProvider
+ * @var \yii\web\View
+ * @var \yii\data\ArrayDataProvider $dataProvider
  * @var \hipanel\modules\mailing\forms\FiltersForm $model
- * @var array $types
- * @var array $states
- * @var array $statuses
+ * @var array $serverTypes
+ * @var array $serverStates
+ * @var array $domainStates
+ * @var array $languages
  */
 $this->title = Yii::t('hipanel:mailing', 'Mailing preparation');
 $this->params['breadcrumbs'][] = $this->title;
@@ -17,7 +19,7 @@ $activeFilters = array_filter($model->getAttributes());
 ?>
 
 <?php $page = IndexPage::begin(compact('model', 'dataProvider')) ?>
-<?= $page->setSearchFormData(compact(['types', 'states', 'statuses'])) ?>
+<?= $page->setSearchFormData(compact(['serverTypes', 'serverStates', 'domainStates', 'languages'])) ?>
 
 <?php $page->beginContent('show-actions') ?>
     <?= $page->renderLayoutSwitcher() ?>
@@ -44,6 +46,7 @@ $activeFilters = array_filter($model->getAttributes());
                 'to',
                 'language',
                 'servers',
+                'server_states',
                 'domains',
             ],
         ]) ?>
