@@ -22,6 +22,10 @@ use hiqdev\combo\StaticCombo;
 </div>
 
 <div class="col-md-4 col-sm-6 col-xs-12">
+    <?= $search->field('include_subclients')->checkbox() ?>
+</div>
+
+<div class="col-md-4 col-sm-6 col-xs-12">
     <?= $search->field('client_in')->widget(ClientCombo::class, [
         'multiple' => true,
     ]) ?>
@@ -54,14 +58,6 @@ use hiqdev\combo\StaticCombo;
     <div class="col-md-4 col-sm-6 col-xs-12">
         <?= $search->field('server_in')->widget(ServerCombo::class, [
             'multiple' => true,
-        ]) ?>
-    </div>
-
-    <div class="col-md-4 col-sm-6 col-xs-12">
-        <?= $search->field('server_state_in')->widget(StaticCombo::class, [
-            'multiple' => true,
-            'hasId' => true,
-            'data' => $serverStates,
         ]) ?>
     </div>
 

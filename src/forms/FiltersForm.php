@@ -45,10 +45,12 @@ class FiltersForm extends Model
 
     public $language_in;
 
+    public $include_subclients;
+
     public function attributes()
     {
         return [
-            'client_in', 'client_state_in',
+            'client_in', 'client_state_in', 'include_subclients',
             'seller_in',
             'server_in', 'has_server', 'server_state_in', 'server_type_in',
             'server_switch_like', 'server_rack_like', 'server_pdu_like',
@@ -84,6 +86,7 @@ class FiltersForm extends Model
             'exclude_unsubscribed' => Yii::t('hipanel:mailing', 'Exclude unsubscribed'),
             'language_in' => Yii::t('hipanel:mailing', 'Languages'),
             'language_unknown' => Yii::t('hipanel:mailing', 'Language is unknown'),
+            'include_subclients' => Yii::t('hipanel:mailing', 'Include subclients')
         ];
     }
 }

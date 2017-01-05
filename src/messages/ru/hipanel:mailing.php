@@ -33,4 +33,5 @@ return [
     'Set filters to start the mailing preparation' => 'Установить фильтры для начала подготовки рассылки',
     'Not set' => 'Не выбран',
     'Languages' => 'Языки',
+    'Include subclients' => 'Включить субклиентов'
 ];

@@ -96,16 +96,28 @@ class PrepareController extends CrudController
 
     private function getServerTypes()
     {
+        if (!Yii::getAlias('@server', false)) {
+            return [];
+        }
+
         return $this->getRefs('type,device', 'hipanel:server');
     }
 
     private function getServerStates()
     {
+        if (!Yii::getAlias('@server', false)) {
+            return [];
+        }
+
         return $this->getRefs('state,device', 'hipanel:server');
     }
 
     private function getDomainStates()
     {
+        if (!Yii::getAlias('@domain', false)) {
+            return [];
+        }
+
         return $this->getRefs('state,domain', 'hipanel:domain');
     }
 
