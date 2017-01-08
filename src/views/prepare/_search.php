@@ -37,6 +37,7 @@ use hiqdev\combo\StaticCombo;
         'data' => ['' => Yii::t('hipanel:mailing', 'Not set')] + $languages,
         'inputOptions' => [
             'multiple' => true,
+            'unselect' => null
         ],
     ]) ?>
 </div>
