@@ -86,7 +86,7 @@ class FiltersForm extends Model
             'exclude_unsubscribed' => Yii::t('hipanel:mailing', 'Exclude unsubscribed'),
             'language_in' => Yii::t('hipanel:mailing', 'Languages'),
             'language_unknown' => Yii::t('hipanel:mailing', 'Language is unknown'),
-            'include_subclients' => Yii::t('hipanel:mailing', 'Include subclients')
+            'include_subclients' => Yii::t('hipanel:mailing', 'Include subclients'),
         ];
     }
 }
