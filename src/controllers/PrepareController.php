@@ -12,8 +12,10 @@ namespace hipanel\modules\mailing\controllers;
 
 use hipanel\actions\OrientationAction;
 use hipanel\base\CrudController;
+use hipanel\modules\mailing\actions\MailingRedirectAction;
 use hipanel\modules\mailing\forms\FiltersForm;
 use hipanel\modules\mailing\logic\TargetsPreparation;
+use hipanel\modules\mailing\renderers\RedirectFormRendererInterface;
 use hipanel\modules\mailing\renderers\TabularRenderer;
 use Yii;
 use yii\data\ArrayDataProvider;
@@ -60,6 +62,7 @@ class PrepareController extends CrudController
             'serverStates' => $this->getServerStates(),
             'domainStates' => $this->getDomainStates(),
             'languages' => $this->getLanguages(),
+            'isMailingServiceAvailable' => Yii::$container->has(RedirectFormRendererInterface::class),
         ];
 
         if ($model->load(Yii::$app->request->get()) && $model->validate()) {
@@ -73,17 +76,33 @@ class PrepareController extends CrudController
 
     public function actionExport()
     {
+        $targets = $this->createTabularTargetsList();
+        /** @var TabularRenderer $renderer */
+        $tabularRenderer = Yii::createObject(TabularRenderer::class, [$targets]);
+
+        return Yii::$app->response->sendContentAsFile($tabularRenderer->render(), 'emails_' . date('Y-m-d--H-i') . '.txt');
+    }
+
+    public function actionRedirectToMailing()
+    {
+        $targets = $this->createTabularTargetsList();
+        $tabularRenderer = Yii::createObject(TabularRenderer::class, [$targets]);
+
+        $renderer = Yii::createObject(RedirectFormRendererInterface::class, [$tabularRenderer->render()]);
+
+        return $this->render('mailingRedirect', [
+            'renderer' => $renderer,
+        ]);
+    }
+
+    private function createTabularTargetsList()
+    {
         $model = new FiltersForm();
 
         if ($model->load(Yii::$app->request->get(), '') && $model->validate()) {
             /** @var TargetsPreparation $targetsPreparation */
             $targetsPreparation = Yii::createObject(TargetsPreparation::class, [$model]);
-            $targets = $targetsPreparation->execute();
-
-            /** @var TabularRenderer $renderer */
-            $renderer = Yii::createObject(TabularRenderer::class, [$targets]);
-
-            return Yii::$app->response->sendContentAsFile($renderer->render(), 'emails_' . date('Y-m-d--H-i') . '.txt');
+            return $targetsPreparation->execute();
         }
 
         throw new NotFoundHttpException('Failed to export the list');

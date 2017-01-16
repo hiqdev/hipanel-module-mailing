@@ -16,7 +16,7 @@ return [
     'Domains' => 'Домены',
     'Email' => 'Email',
     'Exclude unsubscribed' => 'Исключить отписавшихся',
-    'Export mailing list' => 'Экспортировать список',
+    'Export mailing list' => 'Экспорт списка',
     'Has domain' => 'Имеет домен',
     'Has server' => 'Имеет сервер',
     'Language' => 'Язык',
@@ -34,4 +34,6 @@ return [
     'Not set' => 'Не выбран',
     'Languages' => 'Языки',
     'Include subclients' => 'Включить субклиентов',
+    'We are redirecting you to the mailing service, please wait a bit' => 'Мы переадресовываем вас на сервис рассылки, ожидайте, пожалуйста',
+    'Begin mailing' => 'Начать рассылку',
 ];

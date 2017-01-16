@@ -11,6 +11,7 @@ use yii\helpers\Html;
  * @var array $serverStates
  * @var array $domainStates
  * @var array $languages
+ * @var bool $isMailingServiceAvailable
  */
 $this->title = Yii::t('hipanel:mailing', 'Mailing preparation');
 $this->params['breadcrumbs'][] = $this->title;
@@ -19,15 +20,23 @@ $activeFilters = array_filter($model->getAttributes());
 ?>
 
 <?php $page = IndexPage::begin(compact('model', 'dataProvider')) ?>
-<?= $page->setSearchFormData(compact(['serverTypes', 'serverStates', 'domainStates', 'languages'])) ?>
+<?php $page->setSearchFormData(compact(['serverTypes', 'serverStates', 'domainStates', 'languages'])) ?>
 
 <?php $page->beginContent('show-actions') ?>
     <?= $page->renderLayoutSwitcher() ?>
-    <?= !empty($activeFilters) ? Html::a(
-        Yii::t('hipanel:mailing', 'Export mailing list'),
-        ['export'] + $activeFilters,
-        ['class' => 'btn btn-sm btn-success']
-    ) : '' ?>
+    <?php if (!empty($activeFilters)) : ?>
+        <?= $isMailingServiceAvailable ? Html::a(
+            Yii::t('hipanel:mailing', 'Begin mailing'),
+            ['redirect-to-mailing'] + $activeFilters,
+            ['class' => 'btn btn-sm btn-success', 'target' => '_blank']
+        ) : '' ?>
+        <?= Html::a(
+            Yii::t('hipanel:mailing', 'Export mailing list'),
+            ['export'] + $activeFilters,
+            ['class' => 'btn btn-sm btn-info']
+        ) ?>
+
+    <?php endif ?>
 <?php $page->endContent() ?>
 
 <?php $page->beginContent('table') ?>
