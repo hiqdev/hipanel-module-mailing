@@ -13,7 +13,7 @@ namespace hipanel\modules\mailing\logic;
 use hipanel\modules\mailing\forms\FiltersForm;
 use hipanel\modules\mailing\models\Mailing;
 use hipanel\modules\mailing\models\Target;
-use hiqdev\hiart\ErrorResponseException;
+use hiqdev\hiart\ResponseErrorException;
 
 class TargetsPreparation
 {
@@ -39,7 +39,7 @@ class TargetsPreparation
             $data = Mailing::perform('prepare', $this->getFilters());
 
             return $this->createTargets($data);
-        } catch (ErrorResponseException $e) {
+        } catch (ResponseErrorException $e) {
             throw $e;
         }
     }
