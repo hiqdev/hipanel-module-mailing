@@ -10,8 +10,8 @@
 
 namespace hipanel\modules\mailing\logic;
 
-use hipanel\components\ApiConnectionInterface;
 use hipanel\modules\mailing\forms\FiltersForm;
+use hipanel\modules\mailing\models\Mailing;
 use hipanel\modules\mailing\models\Target;
 use hiqdev\hiart\ErrorResponseException;
 
@@ -21,26 +21,22 @@ class TargetsPreparation
      * @var FiltersForm
      */
     private $filtersForm;
-    /**
-     * @var ApiConnectionInterface
-     */
-    private $api;
+
     /**
      * @var
      */
     private $targetClass;
 
-    public function __construct(FiltersForm $filtersForm, ApiConnectionInterface $api, $targetClass = Target::class)
+    public function __construct(FiltersForm $filtersForm, $targetClass = Target::class)
     {
         $this->filtersForm = $filtersForm;
-        $this->api = $api;
         $this->targetClass = $targetClass;
     }
 
     public function execute()
     {
         try {
-            $data = $this->api->post('mailingPrepare', $this->getFilters());
+            $data = Mailing::perform('prepare', $this->getFilters());
 
             return $this->createTargets($data);
         } catch (ErrorResponseException $e) {
