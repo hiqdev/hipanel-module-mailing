@@ -10,7 +10,7 @@
 
 namespace hipanel\modules\mailing\models;
 
-use hipanel\hiart\ActiveRecord;
+use hiqdev\hiart\ActiveRecord;
 
 class Mailing extends ActiveRecord
 {
