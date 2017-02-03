@@ -9,6 +9,14 @@
  */
 
 return [
+    'bootstrap' => array_filter([
+        'yii2-mailing.service.submitUrl-warning' =>
+            (defined('YII_DEBUG') && YII_DEBUG && empty($params['mailing.service.submitUrl'])) ?
+                function () {
+                    Yii::warning('Parameter "mailing.service.submitUrl" is not configured');
+                }
+            : null,
+    ]),
     'aliases' => [
         '@mailing'   => '/mailing',
     ],
@@ -29,6 +37,10 @@ return [
     ],
     'container' => [
         'definitions' => [
+            \hipanel\modules\mailing\renderers\RedirectFormRendererInterface::class => [
+                ['class' => \hipanel\widgets\RedirectFormRenderer::class],
+                [1 => $params['mailing.service.submitUrl']],
+            ],
             \hiqdev\thememanager\menus\AbstractSidebarMenu::class => [
                 'add' => [
                     'client' => [
