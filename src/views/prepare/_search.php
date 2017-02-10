@@ -32,13 +32,10 @@ use hiqdev\combo\StaticCombo;
 </div>
 
 <div class="col-md-4 col-sm-6 col-xs-12">
-    <?= $search->field('language_in')->widget(\hiqdev\combo\MultipleStaticCombo::class, [
+    <?= $search->field('language_in')->widget(StaticCombo::class, [
         'hasId' => true,
-        'data' => ['' => Yii::t('hipanel:mailing', 'Not set')] + $languages,
-        'inputOptions' => [
-            'multiple' => true,
-            'unselect' => null,
-        ],
+        'data' => ['-' => Yii::t('hipanel:mailing', 'Not set')] + $languages,
+        'multiple' => true,
     ]) ?>
 </div>
 
