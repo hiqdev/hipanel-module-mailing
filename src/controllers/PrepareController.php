@@ -39,18 +39,6 @@ class PrepareController extends CrudController
         ]);
     }
 
-    public function actions()
-    {
-        return [
-            'set-orientation' => [
-                'class' => OrientationAction::class,
-                'allowedRoutes' => [
-                    '@mailing/prepare/index',
-                ],
-            ],
-        ];
-    }
-
     public function actionIndex()
     {
         $model = new FiltersForm();
