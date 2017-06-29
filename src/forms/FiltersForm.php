@@ -37,6 +37,8 @@ class FiltersForm extends Model
 
     public $domain_like;
 
+    public $domain_zone_in;
+
     public $has_domain;
 
     public $domain_state_in;
@@ -54,7 +56,7 @@ class FiltersForm extends Model
             'seller_in',
             'server_in', 'has_server', 'server_state_in', 'server_type_in',
             'server_switch_like', 'server_rack_like', 'server_pdu_like',
-            'domain_like', 'has_domain', 'domain_state_in',
+            'domain_like', 'has_domain', 'domain_state_in', 'domain_zone_in',
             'language_in',
             'exclude_unsubscribed',
         ];
@@ -87,6 +89,7 @@ class FiltersForm extends Model
             'language_in' => Yii::t('hipanel:mailing', 'Languages'),
             'language_unknown' => Yii::t('hipanel:mailing', 'Language is unknown'),
             'include_subclients' => Yii::t('hipanel:mailing', 'Include subclients'),
+            'domain_zone_in' => Yii::t('hipanel:mailing', 'Domain zones'),
         ];
     }
 }
