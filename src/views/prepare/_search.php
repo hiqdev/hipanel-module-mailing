@@ -60,6 +60,12 @@ use hiqdev\combo\StaticCombo;
     </div>
 
     <div class="col-md-4 col-sm-6 col-xs-12">
+        <?= $search->field('server_like')->textInput([
+            'placeholder' => $search->model->getAttributeLabel('server_like')
+        ]) ?>
+    </div>
+
+    <div class="col-md-4 col-sm-6 col-xs-12">
         <?= $search->field('server_state_in')->widget(StaticCombo::class, [
             'multiple' => true,
             'hasId' => true,

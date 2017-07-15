@@ -23,6 +23,8 @@ class FiltersForm extends Model
 
     public $server_in;
 
+    public $server_like;
+
     public $has_server;
 
     public $server_state_in;
@@ -54,7 +56,7 @@ class FiltersForm extends Model
         return [
             'client_in', 'client_state_in', 'include_subclients',
             'seller_in',
-            'server_in', 'has_server', 'server_state_in', 'server_type_in',
+            'server_in', 'server_like', 'has_server', 'server_state_in', 'server_type_in',
             'server_switch_like', 'server_rack_like', 'server_pdu_like',
             'domain_like', 'has_domain', 'domain_state_in', 'domain_zone_in',
             'language_in',
@@ -77,6 +79,7 @@ class FiltersForm extends Model
             'client_state_in' => Yii::t('hipanel:mailing', 'Client state'),
             'has_server' => Yii::t('hipanel:mailing', 'Has server'),
             'server_in' => Yii::t('hipanel:mailing', 'Servers'),
+            'server_like' => Yii::t('hipanel:mailing', 'Server (partial match)'),
             'server_state_in' => Yii::t('hipanel:mailing', 'State'),
             'server_type_in' => Yii::t('hipanel:mailing', 'Type'),
             'server_switch_like' => Yii::t('hipanel:mailing', 'Switch'),

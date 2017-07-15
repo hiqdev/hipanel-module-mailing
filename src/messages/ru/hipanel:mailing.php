@@ -37,4 +37,5 @@ return [
     'We are redirecting you to the mailing service, please wait a bit' => 'Мы переадресовываем вас на сервис рассылки, ожидайте, пожалуйста',
     'Begin mailing' => 'Начать рассылку',
     'Domain zones' => 'Доменные зоны',
+    'Server (partial match)' => 'Сервер (частичное совпадение)',
 ];
