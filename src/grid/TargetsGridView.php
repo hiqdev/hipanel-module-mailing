@@ -19,16 +19,16 @@ class TargetsGridView extends \hipanel\grid\BoxedGridView
      */
     public $possibleColumns;
 
-    public static function defaultColumns()
+    public function columns()
     {
-        return [
+        return array_merge(parent::columns(), [
             'seller' => [
                 'attribute' => 'seller',
             ],
             'client' => [
                 'attribute' => 'client',
             ],
-        ];
+        ]);
     }
 
     public function init()
