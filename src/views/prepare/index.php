@@ -20,7 +20,7 @@ $activeFilters = array_filter($model->getAttributes());
 ?>
 
 <?php $page = IndexPage::begin(compact('model', 'dataProvider')) ?>
-<?php $page->setSearchFormData(compact(['serverTypes', 'serverStates', 'domainStates', 'languages'])) ?>
+<?php $page->setSearchFormData(compact(['clientTypes', 'languages', 'serverTypes', 'serverStates', 'domainStates'])) ?>
 
 <?php $page->beginContent('show-actions') ?>
     <?= $page->renderLayoutSwitcher() ?>

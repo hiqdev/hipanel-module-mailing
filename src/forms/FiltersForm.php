@@ -17,6 +17,8 @@ class FiltersForm extends Model
 {
     public $client_in;
 
+    public $client_type_in;
+
     public $client_state_in;
 
     public $seller_in;
@@ -54,7 +56,7 @@ class FiltersForm extends Model
     public function attributes()
     {
         return [
-            'client_in', 'client_state_in', 'include_subclients',
+            'client_in', 'client_type_in', 'client_state_in', 'include_subclients',
             'seller_in',
             'server_in', 'server_like', 'has_server', 'server_state_in', 'server_type_in',
             'server_switch_like', 'server_rack_like', 'server_pdu_like',
@@ -76,6 +78,7 @@ class FiltersForm extends Model
         return [
             'seller_in' => Yii::t('hipanel:mailing', 'Sellers'),
             'client_in' => Yii::t('hipanel:mailing', 'Clients'),
+            'client_type_in' => Yii::t('hipanel:mailing', 'Client type'),
             'client_state_in' => Yii::t('hipanel:mailing', 'Client state'),
             'has_server' => Yii::t('hipanel:mailing', 'Has server'),
             'server_in' => Yii::t('hipanel:mailing', 'Servers'),

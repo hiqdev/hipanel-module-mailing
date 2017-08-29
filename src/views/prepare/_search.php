@@ -15,6 +15,7 @@ use hiqdev\combo\StaticCombo;
  */
 ?>
 
+
 <div class="col-md-4 col-sm-6 col-xs-12">
     <?= $search->field('seller_in')->widget(SellerCombo::class, [
         'multiple' => true,
@@ -23,6 +24,14 @@ use hiqdev\combo\StaticCombo;
 
 <div class="col-md-4 col-sm-6 col-xs-12">
     <?= $search->field('include_subclients')->checkbox() ?>
+</div>
+
+<div class="col-md-4 col-sm-6 col-xs-12">
+    <?= $search->field('client_type_in')->widget(StaticCombo::class, [
+        'hasId' => true,
+        'data' => $clientTypes,
+        'multiple' => true,
+    ]) ?>
 </div>
 
 <div class="col-md-4 col-sm-6 col-xs-12">

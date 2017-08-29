@@ -23,6 +23,8 @@ class Target extends Model
 
     public $client_id;
 
+    public $client_type;
+
     public $to;
 
     public $language;
@@ -51,6 +53,7 @@ class Target extends Model
         return [
             'seller' => Yii::t('hipanel:mailing', 'Seller'),
             'client' => Yii::t('hipanel:mailing', 'Client'),
+            'client_type' => Yii::t('hipanel:mailing', 'Client type'),
             'to' => Yii::t('hipanel:mailing', 'Email'),
             'language' => Yii::t('hipanel:mailing', 'Language'),
             'servers' => Yii::t('hipanel:mailing', 'Servers'),
