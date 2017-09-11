@@ -23,7 +23,6 @@ $activeFilters = array_filter($model->getAttributes());
 <?php $page->setSearchFormData(compact(['clientTypes', 'languages', 'serverTypes', 'serverStates', 'domainStates'])) ?>
 
 <?php $page->beginContent('show-actions') ?>
-    <?= $page->renderLayoutSwitcher() ?>
     <?php if (!empty($activeFilters)) : ?>
         <?= $isMailingServiceAvailable ? Html::a(
             Yii::t('hipanel:mailing', 'Begin mailing'),
