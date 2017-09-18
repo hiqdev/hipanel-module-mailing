@@ -38,5 +38,5 @@ return [
     'Begin mailing' => 'Начать рассылку',
     'Domain zones' => 'Доменные зоны',
     'Server (partial match)' => 'Сервер (частичное совпадение)',
-    'Client logins list (comma-, or space-separated)' => 'Список клиентов (разделитель – запятая или пробел',
+    'Client logins list (comma-, or space-separated)' => 'Список клиентов (разделитель – запятая или пробел)',
 ];
