@@ -24,6 +24,14 @@ use yii\web\NotFoundHttpException;
 
 class PrepareController extends CrudController
 {
+    public function actions()
+    {
+        $actions = parent::actions();
+        unset($actions['export']);
+
+        return $actions;
+    }
+
     public function behaviors()
     {
         return array_merge(parent::behaviors(), [
