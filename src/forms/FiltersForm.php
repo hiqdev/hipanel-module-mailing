@@ -53,6 +53,8 @@ class FiltersForm extends Model
 
     public $include_subclients;
 
+    public $mailing_type;
+
     public function attributes()
     {
         return [
@@ -63,6 +65,7 @@ class FiltersForm extends Model
             'domain_like', 'has_domain', 'domain_state_in', 'domain_zone_in',
             'language_in',
             'exclude_unsubscribed',
+            'mailing_type',
         ];
     }
 

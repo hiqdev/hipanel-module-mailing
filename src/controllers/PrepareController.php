@@ -59,6 +59,7 @@ class PrepareController extends CrudController
             'domainStates' => $this->getDomainStates(),
             'languages' => $this->getLanguages(),
             'isMailingServiceAvailable' => Yii::$container->has(RedirectFormRendererInterface::class),
+            'mailingTypes' => $this->getMailingTypes(),
         ];
 
         if ($model->load(Yii::$app->request->get()) && $model->validate()) {
@@ -134,6 +135,14 @@ class PrepareController extends CrudController
         }
 
         return $this->getRefs('state,domain', 'hipanel:domain');
+    }
+
+    private function getMailingTypes()
+    {
+        return [
+            'newsletters' => Yii::t('hipanel:client', 'Newsletters'),
+            'commercial' => Yii::t('hipanel:client', 'Commercial'),
+        ];
     }
 
     private function getLanguages()
