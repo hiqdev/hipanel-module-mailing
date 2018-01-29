@@ -12,6 +12,7 @@ use hiqdev\combo\StaticCombo;
  * @var array $serverTypes
  * @var array $domainStates
  * @var array $languages
+ * @var array $mailingTypes
  */
 ?>
 
@@ -31,6 +32,14 @@ use hiqdev\combo\StaticCombo;
         'hasId' => true,
         'data' => $clientTypes,
         'multiple' => true,
+    ]) ?>
+</div>
+
+<div class="col-md-4 col-sm-6 col-xs-12">
+    <?= $search->field('mailing_type')->widget(StaticCombo::class, [
+        'hasId' => true,
+        'data' => $mailingTypes,
+        'multiple' => false,
     ]) ?>
 </div>
 

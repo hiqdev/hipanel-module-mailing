@@ -12,6 +12,7 @@ use yii\helpers\Html;
  * @var array $domainStates
  * @var array $languages
  * @var bool $isMailingServiceAvailable
+ * @var array $mailingTypes
  */
 $this->title = Yii::t('hipanel:mailing', 'Mailing preparation');
 $this->params['breadcrumbs'][] = $this->title;
@@ -20,7 +21,7 @@ $activeFilters = array_filter($model->getAttributes());
 ?>
 
 <?php $page = IndexPage::begin(compact('model', 'dataProvider')) ?>
-<?php $page->setSearchFormData(compact(['clientTypes', 'languages', 'serverTypes', 'serverStates', 'domainStates'])) ?>
+<?php $page->setSearchFormData(compact(['clientTypes', 'languages', 'serverTypes', 'serverStates', 'domainStates', 'mailingTypes'])) ?>
 
 <?php $page->beginContent('show-actions') ?>
     <?php if (!empty($activeFilters)) : ?>
