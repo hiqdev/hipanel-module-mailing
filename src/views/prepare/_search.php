@@ -12,6 +12,7 @@ use hiqdev\combo\StaticCombo;
  * @var array $serverTypes
  * @var array $domainStates
  * @var array $languages
+ * @var array $mailingTypes
  */
 ?>
 

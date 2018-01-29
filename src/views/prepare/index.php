@@ -12,6 +12,7 @@ use yii\helpers\Html;
  * @var array $domainStates
  * @var array $languages
  * @var bool $isMailingServiceAvailable
+ * @var array $mailingTypes
  */
 $this->title = Yii::t('hipanel:mailing', 'Mailing preparation');
 $this->params['breadcrumbs'][] = $this->title;
