@@ -10,16 +10,14 @@
 
 namespace hipanel\modules\mailing\controllers;
 
-use hipanel\actions\OrientationAction;
 use hipanel\base\CrudController;
-use hipanel\modules\mailing\actions\MailingRedirectAction;
+use hipanel\filters\EasyAccessControl;
 use hipanel\modules\mailing\forms\FiltersForm;
 use hipanel\modules\mailing\logic\TargetsPreparation;
 use hipanel\modules\mailing\renderers\RedirectFormRendererInterface;
 use hipanel\modules\mailing\renderers\TabularRenderer;
 use Yii;
 use yii\data\ArrayDataProvider;
-use yii\filters\AccessControl;
 use yii\web\NotFoundHttpException;
 
 class PrepareController extends CrudController
@@ -35,13 +33,10 @@ class PrepareController extends CrudController
     public function behaviors()
     {
         return array_merge(parent::behaviors(), [
-            'access' => [
-                'class' => AccessControl::class,
-                'rules' => [
-                    [
-                        'allow' => true,
-                        'roles' => ['mailing.prepare'],
-                    ],
+            [
+                'class' => EasyAccessControl::class,
+                'actions' => [
+                    '*' => 'mailing.prepare',
                 ],
             ],
         ]);
