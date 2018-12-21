@@ -72,6 +72,7 @@ class FiltersForm extends Model
     public function rules()
     {
         return [
+            [['has_domain', 'has_server'], 'boolean'],
             [$this->attributes(), 'safe'],
         ];
     }

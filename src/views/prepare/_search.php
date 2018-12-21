@@ -68,7 +68,11 @@ use hiqdev\combo\StaticCombo;
     </div>
 
     <div class="col-md-4 col-sm-6 col-xs-12">
-        <?= $search->field('has_server')->checkbox() ?>
+        <?= $search->field('has_server')->dropDownList([
+            null    => Yii::t('hipanel:mailing', 'Can have server'),
+            0       => Yii::t('hipanel:mailing', 'Does not have server'),
+            1       => Yii::t('hipanel:mailing', 'Has server'),
+        ]) ?>
     </div>
 
     <div class="col-md-4 col-sm-6 col-xs-12">
@@ -119,7 +123,11 @@ use hiqdev\combo\StaticCombo;
     </div>
 
     <div class="col-md-4 col-sm-6 col-xs-12">
-        <?= $search->field('has_domain')->checkbox() ?>
+        <?= $search->field('has_domain')->dropDownList([
+            null    => Yii::t('hipanel:mailing', 'Can have domain'),
+            0       => Yii::t('hipanel:mailing', 'Does not have domain'),
+            1       => Yii::t('hipanel:mailing', 'Has domain'),
+        ]) ?>
     </div>
 
     <div class="col-md-4 col-sm-6 col-xs-12">

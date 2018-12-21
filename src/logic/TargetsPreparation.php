@@ -57,6 +57,8 @@ class TargetsPreparation
 
     protected function getFilters()
     {
-        return array_filter($this->filtersForm->getAttributes());
+        return array_filter($this->filtersForm->getAttributes(), function ($value) {
+            return $value !== '' && $value !== null;
+        });
     }
 }
