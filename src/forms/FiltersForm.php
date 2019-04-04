@@ -10,6 +10,7 @@
 
 namespace hipanel\modules\mailing\forms;
 
+use hipanel\components\User;
 use Yii;
 use yii\base\Model;
 
@@ -101,5 +102,16 @@ class FiltersForm extends Model
             'include_subclients' => Yii::t('hipanel:mailing', 'Include subclients'),
             'domain_zone_in' => Yii::t('hipanel:mailing', 'Domain zones'),
         ];
+    }
+
+    /**
+     * @return string
+     */
+    public function getDefaultSeller(): string
+    {
+        /** @var User $user */
+        $user = Yii::$app->user;
+
+        return $user->can('resell') ? $user->identity->login : $user->identity->seller;
     }
 }

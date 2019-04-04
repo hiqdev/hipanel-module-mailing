@@ -1,6 +1,5 @@
 <?php
 
-use hipanel\modules\client\widgets\combo\ClientCombo;
 use hipanel\modules\client\widgets\combo\SellerCombo;
 use hipanel\modules\server\widgets\combo\ServerCombo;
 use hiqdev\combo\StaticCombo;
@@ -18,9 +17,10 @@ use hiqdev\combo\StaticCombo;
 
 
 <div class="col-md-4 col-sm-6 col-xs-12">
-    <?= $search->field('seller_in')->widget(SellerCombo::class, [
-        'multiple' => true,
-    ]) ?>
+    <?php
+    $search->model->seller_in = (array)($search->model->seller_in ?: $search->model->defaultSeller);
+    echo $search->field('seller_in')->widget(SellerCombo::class, ['multiple' => true]);
+    ?>
 </div>
 
 <div class="col-md-4 col-sm-6 col-xs-12">
