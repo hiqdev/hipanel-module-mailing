@@ -30,7 +30,7 @@ return [
             'translations' => [
                 'hipanel:mailing' => [
                     'class' => \yii\i18n\PhpMessageSource::class,
-                    'basePath' => '@hipanel/modules/mailing/messages',
+                    'basePath' => __DIR__ . '/../messages',
                 ],
             ],
         ],
