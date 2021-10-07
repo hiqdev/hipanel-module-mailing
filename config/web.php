@@ -43,7 +43,7 @@ return [
             ],
             \hiqdev\thememanager\menus\AbstractSidebarMenu::class => [
                 'add' => [
-                    'client' => [
+                    'clients' => [
                         'menu' => [
                             'merge' => [
                                 'mailing' => [
