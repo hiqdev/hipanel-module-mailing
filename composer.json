@@ -43,7 +43,7 @@
         }
     ],
     "require": {
-        "hiqdev/hipanel-core": "<2.0 || dev-master"
+        "hiqdev/hipanel-core": "<2.0 || dev-php8"
     },
     "require-dev": {
         "hiqdev/hidev-php": "<2.0",
