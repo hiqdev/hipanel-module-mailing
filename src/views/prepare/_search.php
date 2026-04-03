@@ -2,6 +2,7 @@
 
 use hipanel\modules\client\widgets\combo\SellerCombo;
 use hipanel\modules\server\widgets\combo\ServerCombo;
+use hipanel\modules\finance\widgets\combo\PlanCombo;
 use hiqdev\combo\StaticCombo;
 
 /**
@@ -145,4 +146,10 @@ use hiqdev\combo\StaticCombo;
     <div class="col-md-4 col-sm-6 col-xs-12">
         <?= $search->field('domain_zone_in') ?>
     </div>
+    <div class="col-md-4 col-sm-6 col-xs-12">
+        <?= $search->field('tariff_id')->widget(PlanCombo::class, [
+                'hasId' => true,
+        ]) ?>
+    </div>
 <?php endif ?>
+
