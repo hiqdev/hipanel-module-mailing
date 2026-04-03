@@ -56,6 +56,8 @@ class FiltersForm extends Model
 
     public $mailing_type;
 
+    public ?string $tariff_id = null;
+
     public function attributes()
     {
         return [
@@ -67,6 +69,7 @@ class FiltersForm extends Model
             'language_in',
             'exclude_unsubscribed',
             'mailing_type',
+            'tariff_id',
         ];
     }
 
@@ -101,6 +104,7 @@ class FiltersForm extends Model
             'language_unknown' => Yii::t('hipanel:mailing', 'Language is unknown'),
             'include_subclients' => Yii::t('hipanel:mailing', 'Include subclients'),
             'domain_zone_in' => Yii::t('hipanel:mailing', 'Domain zones'),
+            'tariff_id' => Yii::t('hipanel:mailing', 'Tariff'),
         ];
     }
 
